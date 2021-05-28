@@ -6,3 +6,51 @@ Orden para generar estilos en CSS
 4. Visuales (border, shadows)
 5. Otros 
  */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Manrope', sans-serif;
+}
+
+main {
+  display: grid;
+  place-items: center;
+
+}
+
+.container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+h1 {
+  margin-top: 90px;
+  font-size: 3.6rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 312px;
+  height: 62px;
+  border-radius: 8px;
+}
+
+button {
+  margin-top: 20px;
+  width: 160px;
+  height: 50px;
+  border-radius: 30px;
+}
+
