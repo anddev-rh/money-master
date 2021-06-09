@@ -11,16 +11,39 @@
 </head>
 <body>
   <main>
-    <div class="container-1">
+    <div class="enter-data hide">
+      <div class="container-1">
       <h1>Money Master</h1>
       <p>Comencemos completando tus datos...</p>
     </div>
 
     <div class="container-2">
-      <input type="text" placeholder="Tu nombre">
-      <input type="number" placeholder="$ Tu dinero actual">
-      <button>ingresar</button>
+      <input class="user-name" type="text" placeholder="Tu nombre">
+      <input class="user-balance"type="number" placeholder="$ Tu dinero actual">
+      <button class="intro-button">ingresar</button>
     </div>
+  </div>
+
+  <div class="transaction-container">
+    <div class="transaction-form">
+      <h1>Money Master</h1>
+      <div class="form--userdata">
+        <p class="form--userdata__name">Andres</p>
+        <p class="form--userdata__balance">Tu saldo:</p>
+        <p class="form--userdata__balance-value">$150000</p>
+        <p>Agregar Movimiento</p>
+        <div>
+          <p>Descripción:</p>
+          <input type="text">
+          <p>Valor:</p>
+          <input type="text">
+          <p>Tipo de movimiento:</p>
+          <select name="" id=""></select>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
+  <script src="script.js"></script>
 </body>
 </html> 
