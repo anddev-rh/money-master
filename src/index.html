@@ -35,15 +35,25 @@
       <div class="form--fields">
         <h2>Agregar Movimiento</h2>
         <p>Descripción:</p>
-        <input type="text">
+        <input type="text" class="trans-description">
         <p>Valor:</p>
-        <input type="text">
+        <input type="number" class="trans-ammount" placeholder="$">
         <p>Tipo:</p>
-        <select name="" id="">
+        <select name="" id="" class="trans-type">
           <option value="">Gasto</option>
           <option value="">Ingreso</option>
         </select>
         <button class="button-add">Agregar</button>
+      </div>
+    </div>
+    
+    <div class="transaction-table">
+      <h3>Tus movimientos</h3>
+      <div class="transaction-table-grid">
+        <p class="transaction-table--item">Num</p>
+        <p class="transaction-table--item">Descripción</p>
+        <p class="transaction-table--item">Monto</p>
+        <p class="transaction-table--item">Fecha</p>
       </div>
     </div>
   </div>

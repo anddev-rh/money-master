@@ -82,7 +82,7 @@ button:active {
   color: var(--dark-blue);
 }
 
-button:hover {
+.intro-button:hover {
   width: 180px;
   height: 60px;
   font-size: 25px;
@@ -177,4 +177,36 @@ button:hover {
   background-color: var(--dark-blue);
   color: white;
   outline: none;
+}
+
+.button-add:hover {
+  width: 150px;
+  height: 45px;
+  font-size: 2.0rem;
+}
+
+.transaction-table {
+  margin-top: 30px;
+  width: 95vw;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px #BFBFBF;
+  padding: 0 20px;
+}
+
+.transaction-table h3{
+  padding: 60px 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.transaction-table-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  justify-items: center;
+}
+
+.transaction-table--item {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--dark-blue);
 }
