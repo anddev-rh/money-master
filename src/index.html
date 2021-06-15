@@ -11,7 +11,7 @@
 </head>
 <body>
   <main>
-    <div class="enter-data hide">
+    <div class="enter-data">
       <div class="container-1">
       <h1>Money Master</h1>
       <p>Comencemos completando tus datos...</p>
@@ -24,13 +24,13 @@
     </div>
   </div>
 
-  <div class="transaction-container">
+  <div class="transaction-container hide">
     <div class="transaction-form">
       <h1>Money Master</h1>
       <div class="form--userdata">
         <p class="form--userdata__name">Andres</p>
         <p class="form--userdata__balance">Tu saldo:</p>
-        <p class="form--userdata__balance-value">$150000</p>
+        <p class="form--userdata__balance-value"></p>
       </div>
       <div class="form--fields">
         <h2>Agregar Movimiento</h2>
@@ -40,8 +40,8 @@
         <input type="number" class="trans-ammount" placeholder="$">
         <p>Tipo:</p>
         <select name="" id="" class="trans-type">
-          <option value="">Gasto</option>
-          <option value="">Ingreso</option>
+          <option value="0">Gasto</option>
+          <option value="1">Ingreso</option>
         </select>
         <button class="button-add">Agregar</button>
       </div>

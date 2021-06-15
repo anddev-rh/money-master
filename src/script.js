@@ -9,6 +9,7 @@ const buttonAdd = document.querySelector('.button-add')
 const transDescription = document.querySelector('.trans-description')
 const transAmmount = document.querySelector('.trans-ammount')
 const transType = document.querySelector('.trans-type')
+const transactionTable = document.querySelector('.transaction-table-grid')
 
 let user = {
   "name": String,
@@ -29,10 +30,9 @@ function getUserData () {
     alert("Ingresa tu nombre y tu dinero actual para continuar.")
   } else {
     userDataName.textContent = user.name
-    userDataBalance.textContent = `${user.balance}`
+    userDataBalance.textContent = `$ ${user.balance}`
     enterData.classList.add('hide')
     transactionContainer.classList.remove('hide')
-    console.log(user);
   }
 }
 
@@ -42,10 +42,56 @@ function printTransaction () {
   } else if (transDescription.value === "") {
     alert('Por favor agrega una descripción de tu transacción para continuar.')
   } else {
-    alert('movimiento registrado')
+    //alert('movimiento registrado')
+
+    
+    let num = user.transactions.number
+    user.transactions.description = transDescription.value
+    user.transactions.amount = parseInt(transAmmount.value)
+    
+    
+    let printNum = document.createElement("P")
+    let printDescription = document.createElement("P")
+    let printAmmount = document.createElement("P")
+    let printDate = document.createElement("P")
+
+    let sign 
+    if (transType.value == 0) {
+      sign = "-"
+      printAmmount.style.color = '#C60000'
+      user.balance -= user.transactions.amount
+    } else {
+      sign = "+"
+      printAmmount.style.color = '#008E0E'
+      user.balance += user.transactions.amount
+    }
+    //console.log(transType.value);
+    
 
 
+    userDataBalance.textContent = `$ ${user.balance}`
 
+    printNum.textContent = num
+    printDescription.textContent = user.transactions.description
+    printAmmount.textContent = sign + user.transactions.amount 
+    printDate.textContent = user.transactions.date.toLocaleDateString()
+
+    //console.log(printNum);
+
+    //printNum.classList.add('transaction-table--item')
+
+
+    printNum.classList.add('transaction-table--item__new')
+    printDescription.classList.add('transaction-table--item__new')
+    printAmmount.classList.add('transaction-table--item__new')
+    printDate.classList.add('transaction-table--item__new')
+
+    transactionTable.appendChild(printNum)
+    transactionTable.appendChild(printDescription)
+    transactionTable.appendChild(printAmmount)
+    transactionTable.appendChild(printDate)
+
+    user.transactions.number ++
 
   }
 }

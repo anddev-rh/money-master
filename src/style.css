@@ -205,6 +205,14 @@ button:active {
   justify-items: center;
 }
 
+
+.transaction-table--item__new {
+  
+  margin-top: 12px;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
 .transaction-table--item {
   font-size: 1.4rem;
   font-weight: bold;
