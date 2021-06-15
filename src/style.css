@@ -218,3 +218,11 @@ button:active {
   font-weight: bold;
   color: var(--dark-blue);
 }
+
+.red {
+  color: #c60000;
+}
+
+.green {
+  color: #008E0E;
+}

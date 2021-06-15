@@ -11,6 +11,10 @@ const transAmmount = document.querySelector('.trans-ammount')
 const transType = document.querySelector('.trans-type')
 const transactionTable = document.querySelector('.transaction-table-grid')
 
+
+
+
+
 let user = {
   "name": String,
   "balance": Number,
@@ -50,80 +54,36 @@ function printTransaction () {
     const prints = Object.values(user.transactions)
     //console.log(prints);
 
-
+    const printAmmount = document.querySelector('.item__new2')
 
     prints.forEach( function (element, index) {
-      element.index  = document.createElement("P")
+      element  = document.createElement("P")
       element.textContent = prints[index]
-      //transactionTable.appendChild(element.index)
+      transactionTable.appendChild(element)
+
+      element.classList.add('transaction-table--item__new')
+      //element.classList.add(`item__new${index}`)
       
-      let sign
-      if (transType.value == 0) {
-        sign = "-"
-        element[2].style.color = '#C60000'
+
+      
+      if(transType.value == 0 && index == 2) {
+      
+        element.textContent = `- $${user.transactions.amount}`
+        element.classList.add('red')
         user.balance -= user.transactions.amount
       }
+
+      if(transType.value == 1 && index == 2) {
+        element.textContent = `+ $${user.transactions.amount}`
+        element.classList.add('green')
+        user.balance += user.transactions.amount
+      }
       
-      
-      console.log(element);
+      //console.log(element);
     } )
     
-/*     let sign 
-    if (transType.value == 0) {
-      sign = "-"
-      printAmmount.style.color = '#C60000'
-      user.balance -= user.transactions.amount
-    } else {
-      sign = "+"
-      printAmmount.style.color = '#008E0E'
-      user.balance += user.transactions.amount
-    } */
-
-    /* let num = user.transactions.number
-    user.transactions.description = transDescription.value
-    user.transactions.amount = parseInt(transAmmount.value)
-    
-    
-    let printNum = document.createElement("P")
-    let printDescription = document.createElement("P")
-    let printAmmount = document.createElement("P")
-    let printDate = document.createElement("P")
-
-    let sign 
-    if (transType.value == 0) {
-      sign = "-"
-      printAmmount.style.color = '#C60000'
-      user.balance -= user.transactions.amount
-    } else {
-      sign = "+"
-      printAmmount.style.color = '#008E0E'
-      user.balance += user.transactions.amount
-    }
-    //console.log(transType.value);
-    
-
-
     userDataBalance.textContent = `$ ${user.balance}`
 
-    printNum.textContent = num
-    printDescription.textContent = user.transactions.description
-    printAmmount.textContent = sign + user.transactions.amount 
-    printDate.textContent = user.transactions.date.toLocaleDateString()
-
-    //console.log(printNum);
-
-    //printNum.classList.add('transaction-table--item')
-
-
-    printNum.classList.add('transaction-table--item__new')
-    printDescription.classList.add('transaction-table--item__new')
-    printAmmount.classList.add('transaction-table--item__new')
-    printDate.classList.add('transaction-table--item__new')
-
-    transactionTable.appendChild(printNum)
-    transactionTable.appendChild(printDescription)
-    transactionTable.appendChild(printAmmount)
-    transactionTable.appendChild(printDate) */
 
     user.transactions.number ++
 
@@ -133,6 +93,4 @@ function printTransaction () {
 
 
 introButton.addEventListener('click', getUserData)
-
-
 buttonAdd.addEventListener('click', printTransaction)
