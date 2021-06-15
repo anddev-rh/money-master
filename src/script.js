@@ -18,7 +18,7 @@ let user = {
     "number": 1,
     "description": String,
     "amount": Number,
-    "date": new Date()
+    "date": new Date().toLocaleDateString()
   }
 }
 
@@ -26,7 +26,7 @@ function getUserData () {
   user.name = userName.value
   user.balance = parseInt(userBalance.value)
 
-  if (user.name == "" || user.balance == NaN) {
+  if (user.name == "" || user.balance.value === NaN) {
     alert("Ingresa tu nombre y tu dinero actual para continuar.")
   } else {
     userDataName.textContent = user.name
@@ -44,8 +44,42 @@ function printTransaction () {
   } else {
     //alert('movimiento registrado')
 
+    user.transactions.description = transDescription.value
+    user.transactions.amount = parseInt(transAmmount.value)
+
+    const prints = Object.values(user.transactions)
+    //console.log(prints);
+
+
+
+    prints.forEach( function (element, index) {
+      element.index  = document.createElement("P")
+      element.textContent = prints[index]
+      //transactionTable.appendChild(element.index)
+      
+      let sign
+      if (transType.value == 0) {
+        sign = "-"
+        element[2].style.color = '#C60000'
+        user.balance -= user.transactions.amount
+      }
+      
+      
+      console.log(element);
+    } )
     
-    let num = user.transactions.number
+/*     let sign 
+    if (transType.value == 0) {
+      sign = "-"
+      printAmmount.style.color = '#C60000'
+      user.balance -= user.transactions.amount
+    } else {
+      sign = "+"
+      printAmmount.style.color = '#008E0E'
+      user.balance += user.transactions.amount
+    } */
+
+    /* let num = user.transactions.number
     user.transactions.description = transDescription.value
     user.transactions.amount = parseInt(transAmmount.value)
     
@@ -89,7 +123,7 @@ function printTransaction () {
     transactionTable.appendChild(printNum)
     transactionTable.appendChild(printDescription)
     transactionTable.appendChild(printAmmount)
-    transactionTable.appendChild(printDate)
+    transactionTable.appendChild(printDate) */
 
     user.transactions.number ++
 
