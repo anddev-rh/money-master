@@ -10,6 +10,10 @@ const transDescription = document.querySelector('.trans-description')
 const transAmmount = document.querySelector('.trans-ammount')
 const transType = document.querySelector('.trans-type')
 const transactionTable = document.querySelector('.transaction-table-grid')
+const modalContainer = document.querySelector('.modal-container')
+const modalTitle = document.querySelector('.modal--title')
+const modalText = document.querySelector('.modal--text')
+const closeButton = document.getElementById('close')
 
 
 
@@ -31,7 +35,10 @@ function getUserData () {
   user.balance = parseInt(userBalance.value)
 
   if (user.name == "" || user.balance.value === NaN) {
-    alert("Ingresa tu nombre y tu dinero actual para continuar.")
+    modalContainer.classList.add('show')
+    modalTitle.textContent = 'Espera...'
+    modalText.textContent = 'Ingresa tu nombre y tu dinero actual para continuar.'
+    //alert("Ingresa tu nombre y tu dinero actual para continuar.")
   } else {
     userDataName.textContent = user.name
     userDataBalance.textContent = `$ ${user.balance}`
@@ -42,14 +49,21 @@ function getUserData () {
 
 function printTransaction () {
   if(transAmmount.value === "") {
-    alert('Por favor ingresa una cantidad, para poder registrar tu transacción.')
+    modalContainer.classList.add('show')
+    modalTitle.textContent = 'Mmmmm...'
+    modalText.textContent = 'Por favor ingresa una cantidad, para poder registrar tu transacción.'
+    //alert('Por favor ingresa una cantidad, para poder registrar tu transacción.')
   } else if (transDescription.value === "") {
-    alert('Por favor agrega una descripción de tu transacción para continuar.')
+    modalContainer.classList.add('show')
+    modalTitle.textContent = 'Mmmmm...'
+    modalText.textContent = 'Por favor agrega una descripción de tu transacción para continuar.'
+    //alert('Por favor agrega una descripción de tu transacción para continuar.')
   } else {
     //alert('movimiento registrado')
 
     user.transactions.description = transDescription.value
     user.transactions.amount = parseInt(transAmmount.value)
+
 
     const prints = Object.values(user.transactions)
     //console.log(prints);
@@ -87,6 +101,8 @@ function printTransaction () {
 
     user.transactions.number ++
 
+    transDescription.value = ''
+    transAmmount.value = ''
   }
 }
 
@@ -94,3 +110,6 @@ function printTransaction () {
 
 introButton.addEventListener('click', getUserData)
 buttonAdd.addEventListener('click', printTransaction)
+closeButton.addEventListener('click', function(){
+  modalContainer.classList.remove('show')
+})
